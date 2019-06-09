@@ -7,8 +7,34 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-card *ngFor="let item of list">
+
+  <img [src]="item?.urlToImage"/>
+
+  <ion-card-content>
+    <ion-card-title style="text-align: right">
+      {{item?.title}}
+    </ion-card-title>
+
+  </ion-card-content>
+
+  <ion-row no-padding>
+  
+    <ion-col text-left>
+      <button ion-button clear small color="danger" (click)="info(item?.title,item?.description,item?.urlToImage)" icon-start>
+        <ion-icon name='eye'></ion-icon>
+        المزيد
+      </button>
+    </ion-col>
+
+
+    <ion-col text-right>
+      <button ion-button clear small color="danger" icon-end (click)="share(item?.description,item?.urlToImage,item?.url,item?.description)">
+        <ion-icon name='share-alt'></ion-icon>
+        
+      </button>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
 </ion-content>
